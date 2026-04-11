@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local ML Platform</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">🤖 ML Platform</h1>
+        <span id="ollama-status" class="status-badge status-unknown">Checking…</span>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Model</h2>
+        <select id="model-select" class="model-select">
+          <option value="">Loading models…</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Models Status</h2>
+        <ul id="model-list" class="model-list">
+          <li class="model-item loading">Loading…</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section sidebar-footer">
+        <p class="hint">
+          Run <code>scripts\install.bat</code> to install missing models.
+        </p>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="main">
+      <div id="chat-messages" class="chat-messages">
+        <div class="welcome">
+          <h2>Welcome to your Local ML Platform</h2>
+          <p>Select a model in the sidebar, then start chatting below.</p>
+          <p>All processing happens <strong>locally</strong> — no data leaves your machine.</p>
+        </div>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <textarea
+          id="prompt-input"
+          class="prompt-input"
+          placeholder="Type your message here… (Enter to send, Shift+Enter for new line)"
+          rows="3"
+          autocomplete="off"
+        ></textarea>
+        <button id="send-btn" type="submit" class="send-btn" disabled>Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
